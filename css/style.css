@@ -59,6 +59,7 @@ body {
   font-size: 16px;
   font-family: "OpenSans", sans-serif;
   color: #31313a;
+
 }
 
 a {
@@ -79,6 +80,7 @@ a:focus {
   width: 1140px;
   margin: 0 auto;
   padding: 0 20px;
+
 }
 
 .hidden {
@@ -257,6 +259,7 @@ a:focus {
 
 .content__side {
   width: 260px;
+
 }
 
 .content__side-heading {
@@ -292,7 +295,7 @@ a:focus {
   align-items: center;
 
   font-size: 14px;
-  color: #9fa4af;
+  color: #31313a;
   text-transform: uppercase;
 }
 
