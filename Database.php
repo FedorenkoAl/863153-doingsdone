@@ -50,4 +50,8 @@ class Database {
         return mysqli_fetch_all($this->last_result, MYSQLI_ASSOC);
     }
 
+    public function getResultAssocArray() {
+        return mysqli_fetch_assoc($this->last_result);
+    }
+
 }

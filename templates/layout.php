@@ -12,23 +12,29 @@
         <div class="page-wrapper">
             <div class="container container--with-sidebar">
                 <header class="main-header">
+ <?php if (isset($_SESSION['user'])) :?>
                     <a href="/index.php">
                         <img src="img/logo.png" width="153" height="42" alt="Логотип Дела в порядке">
                     </a>
+
                     <div class="main-header__side">
-                        <a class="main-header__side-item button button--plus open-modal" href="pages/form-task.html">Добавить задачу</a>
+
+                        <a class="main-header__side-item button button--plus open-modal" href="/add.php">Добавить задачу</a>
                         <div class="main-header__side-item user-menu">
                             <div class="user-menu__image">
                                 <img src="img/user.png" width="40" height="40" alt="Пользователь">
                             </div>
                             <div class="user-menu__data">
-                                <p></p>
-                                <a href="/register.php">Вoйти</a>
+                                <p><?=$_SESSION['user']['name'];?></p>
+                                <a href="/logout.php">Выйти</a>
                             </div>
+
                         </div>
                     </div>
+                      <?php endif; ?>
                 </header>
                 <div class="content">
+
                     <?=$content;?>
 
                 </div>
@@ -40,7 +46,7 @@
                     <p>© 2019, «Дела в порядке»</p>
                     <p>Веб-приложение для удобного ведения списка дел.</p>
                 </div>
-                <a class="main-footer__button button button--plus" href="pages/form-task.html">Добавить задачу</a>
+                <!-- <a class="main-footer__button button button--plus" href="pages/form-task.html">Добавить задачу</a> -->
                 <div class="main-footer__social social">
                     <span class="visually-hidden">Мы в соцсетях:</span>
                     <a class="social__link social__link--facebook" href="#">

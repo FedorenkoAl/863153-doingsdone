@@ -1,4 +1,4 @@
- <section class="content__side">
+<section class="content__side">
         <h2 class="content__side-heading">Проекты</h2>
         <nav class="main-navigation">
             <ul class="main-navigation__list">
@@ -11,7 +11,7 @@
             </ul>
         </nav>
         <a class="button button--transparent button--plus content__side-button"
-        href="pages/form-project.html" target="project_add">Добавить проект</a>
+        href="form-project.php" target="project_add">Добавить проект</a>
 </section>
 <main class="content__main">
     <h2 class="content__main-heading">Список задач</h2>
@@ -21,6 +21,7 @@
     </form>
     <div class="tasks-controls">
         <nav class="tasks-switch">
+
             <a href="/" class="tasks-switch__item tasks-switch__item--active">Все задачи</a>
             <a href="/" class="tasks-switch__item">Повестка дня</a>
             <a href="/" class="tasks-switch__item">Завтра</a>

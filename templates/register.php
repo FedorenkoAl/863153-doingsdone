@@ -37,7 +37,7 @@
             <div class="form__row">
               <label class="form__label" for="email">E-mail <sup>*</sup></label>
 
-              <input class="form__input <?=$errors['email'];?>" type="text" name="email" id="email" value="<?=$_POST['email'];?>" placeholder="Введите e-mail">
+              <input class="form__input <?=$errors['email'];?>" type="text" name="email" id="email" value="<?=htmlspecialchars($_POST['email']);?>" placeholder="Введите e-mail">
 
               <p class="form__message"><?=$error_email;?></p>
             </div>
@@ -45,13 +45,13 @@
             <div class="form__row">
               <label class="form__label" for="password">Пароль <sup>*</sup></label>
 
-              <input class="form__input <?=$errors['password'];?>" type="text" name="password" id="password" value="<?=$_POST['password'];?>" placeholder="Введите пароль">
+              <input class="form__input <?=$errors['password'];?>" type="text" name="password" id="password" value="<?=htmlspecialchars($_POST['password']);?>" placeholder="Введите пароль">
             </div>
 
             <div class="form__row">
               <label class="form__label" for="name">Имя <sup>*</sup></label>
 
-              <input class="form__input <?=$errors['name'];?>" type="text" name="name" id="name" value="<?=$_POST['name'];?>" placeholder="Введите имя">
+              <input class="form__input <?=$errors['name'];?>" type="text" name="name" id="name" value="<?=htmlspecialchars($_POST['name']);?>" placeholder="Введите имя">
             </div>
 
             <div class="form__row form__row--controls">

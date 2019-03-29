@@ -3,10 +3,9 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title><?=$title;?></title>
   <link rel="stylesheet" href="../css/normalize.css">
   <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/flatpickr.min.css">
 </head>
 
 <body>
@@ -14,106 +13,55 @@
 
 <div class="page-wrapper">
   <div class="container container--with-sidebar">
+
     <header class="main-header">
-      <a href="#">
+      <a href="index.php">
         <img src="../img/logo.png" width="153" height="42" alt="Логитип Дела в порядке">
       </a>
 
       <div class="main-header__side">
-        <a class="main-header__side-item button button--plus" href="form-task.html">Добавить задачу</a>
-
-        <div class="main-header__side-item user-menu">
-          <div class="user-menu__image">
-            <img src="../img/user.png" width="40" height="40" alt="Пользователь">
-          </div>
-
-          <div class="user-menu__data">
-            <p>Константин</p>
-
-            <a href="#">Выйти</a>
-          </div>
-        </div>
+        <a class="main-header__side-item button button--transparent" href="form-authorization.html">Войти</a>
       </div>
     </header>
 
     <div class="content">
+
       <section class="content__side">
-        <h2 class="content__side-heading">Проекты</h2>
+        <p class="content__side-info">Если у вас уже есть аккаунт, авторизуйтесь на сайте</p>
 
-        <nav class="main-navigation">
-          <ul class="main-navigation__list">
-            <li class="main-navigation__list-item">
-              <a class="main-navigation__list-item-link" href="#">Входящие</a>
-              <span class="main-navigation__list-item-count">24</span>
-            </li>
-
-            <li class="main-navigation__list-item main-navigation__list-item--active">
-              <a class="main-navigation__list-item-link" href="#">Работа</a>
-              <span class="main-navigation__list-item-count">12</span>
-            </li>
-
-            <li class="main-navigation__list-item">
-              <a class="main-navigation__list-item-link" href="#">Здоровье</a>
-              <span class="main-navigation__list-item-count">3</span>
-            </li>
-
-            <li class="main-navigation__list-item">
-              <a class="main-navigation__list-item-link" href="#">Домашние дела</a>
-              <span class="main-navigation__list-item-count">7</span>
-            </li>
-
-            <li class="main-navigation__list-item">
-              <a class="main-navigation__list-item-link" href="#">Авто</a>
-              <span class="main-navigation__list-item-count">0</span>
-            </li>
-          </ul>
-        </nav>
-
-        <a class="button button--transparent button--plus content__side-button" href="form-project.html">Добавить проект</a>
+        <a class="button button--transparent content__side-button" href="form-authorization.html">Войти</a>
       </section>
 
       <main class="content__main">
-        <h2 class="content__main-heading">Добавление задачи</h2>
+        <h2 class="content__main-heading">Вход на сайт</h2>
 
-        <form class="form"  action="index.html" method="post">
+        <form class="form" action="/auth.php" method="post">
           <div class="form__row">
-            <label class="form__label" for="name">Название <sup>*</sup></label>
+            <label class="form__label" for="email">E-mail <sup>*</sup></label>
 
-            <input class="form__input" type="text" name="name" id="name" value="" placeholder="Введите название">
+            <input class="form__input <?=$errors['email'];?>" type="text" name="email" id="email" value="<?=htmlspecialchars($_POST['email']);?>" placeholder="Введите e-mail">
+
+            <p class="form__message"><?=$error_email;?></p>
           </div>
 
           <div class="form__row">
-            <label class="form__label" for="project">Проект</label>
+            <label class="form__label" for="password">Пароль <sup>*</sup></label>
 
-          <select class="form__input form__input--select" name="project" id="project">
-              <option value="">Входящие</option>
-            </select>
-          </div>
-
-          <div class="form__row">
-            <label class="form__label" for="date">Дата выполнения</label>
-
-            <input class="form__input form__input--date" type="date" name="date" id="date" value="" placeholder="Введите дату в формате ДД.ММ.ГГГГ">
-          </div>
-
-          <div class="form__row">
-            <label class="form__label" for="preview">Файл</label>
-
-            <div class="form__input-file">
-              <input class="visually-hidden" type="file" name="preview" id="preview" value="">
-
-              <label class="button button--transparent" for="preview">
-                <span>Выберите файл</span>
-              </label>
-            </div>
+            <input class="form__input <?=$errors['password'];?>" type="text" name="password" id="password" value="<?=htmlspecialchars($_POST['password']);?>" placeholder="Введите пароль">
+            <p class="form__message"><?=$error_password;?></p>
           </div>
 
           <div class="form__row form__row--controls">
-            <input class="button" type="submit" name="" value="Добавить">
+            <p class="error-message"><?=$error;?></p>
+
+            <input class="button" type="submit" name="" value="Войти">
           </div>
         </form>
+
       </main>
+
     </div>
+
   </div>
 </div>
 
@@ -124,8 +72,6 @@
 
       <p>Веб-приложение для удобного ведения списка дел.</p>
     </div>
-
-    <a class="main-footer__button button button--plus" href="form-task.html">Добавить задачу</a>
 
     <div class="main-footer__social social">
       <span class="visually-hidden">Мы в соцсетях:</span>
@@ -175,7 +121,6 @@
     </div>
   </div>
 </footer>
-<script src="../flatpickr.js"></script>
-<script src="../script.js"></script>
+
 </body>
 </html>

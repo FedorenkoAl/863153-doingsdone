@@ -3,10 +3,9 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title><?=$title;?></title>
   <link rel="stylesheet" href="../css/normalize.css">
   <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/flatpickr.min.css">
 </head>
 
 <body>
@@ -15,7 +14,7 @@
 <div class="page-wrapper">
   <div class="container container--with-sidebar">
     <header class="main-header">
-      <a href="#">
+      <a href="/index.php">
         <img src="../img/logo.png" width="153" height="42" alt="Логитип Дела в порядке">
       </a>
 
@@ -28,9 +27,9 @@
           </div>
 
           <div class="user-menu__data">
-            <p>Константин</p>
+            <p><?=$_SESSION['user']['name'];?></p>
 
-            <a href="#">Выйти</a>
+            <a href="/logout.php">Выйти</a>
           </div>
         </div>
       </div>
@@ -73,39 +72,13 @@
       </section>
 
       <main class="content__main">
-        <h2 class="content__main-heading">Добавление задачи</h2>
+        <h2 class="content__main-heading">Добавление проекта</h2>
 
         <form class="form"  action="index.html" method="post">
           <div class="form__row">
-            <label class="form__label" for="name">Название <sup>*</sup></label>
+            <label class="form__label" for="project_name">Название <sup>*</sup></label>
 
-            <input class="form__input" type="text" name="name" id="name" value="" placeholder="Введите название">
-          </div>
-
-          <div class="form__row">
-            <label class="form__label" for="project">Проект</label>
-
-          <select class="form__input form__input--select" name="project" id="project">
-              <option value="">Входящие</option>
-            </select>
-          </div>
-
-          <div class="form__row">
-            <label class="form__label" for="date">Дата выполнения</label>
-
-            <input class="form__input form__input--date" type="date" name="date" id="date" value="" placeholder="Введите дату в формате ДД.ММ.ГГГГ">
-          </div>
-
-          <div class="form__row">
-            <label class="form__label" for="preview">Файл</label>
-
-            <div class="form__input-file">
-              <input class="visually-hidden" type="file" name="preview" id="preview" value="">
-
-              <label class="button button--transparent" for="preview">
-                <span>Выберите файл</span>
-              </label>
-            </div>
+            <input class="form__input" type="text" name="name" id="project_name" value="" placeholder="Введите название проекта">
           </div>
 
           <div class="form__row form__row--controls">
@@ -175,7 +148,5 @@
     </div>
   </div>
 </footer>
-<script src="../flatpickr.js"></script>
-<script src="../script.js"></script>
 </body>
 </html>

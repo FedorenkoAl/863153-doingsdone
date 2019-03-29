@@ -10,18 +10,30 @@ $Database -> executeQuery('SELECT name FROM project');
 
 $projekt = $Database->getResultAsArray();
 
+
+
 $Database -> executeQuery('SELECT data_end,  status, name FROM task');
     check($Database->getLastError());
-
 $task = $Database->getResultAsArray();
 
 $page_content = include_template('index.php', [
-    'projekt' => $projekt,
-    'task' => $task
+     'projekt' => $projekt,
+     'task' => $task
 ]);
 
+$gust = include_template('guest.php', []);
+
+if (isset($_SESSION['user'])) {
+    $content = $page_content;
+}
+else {
+    $content = $gust;
+}
+
+
 $layout_content = include_template('layout.php', [
-    'content' => $page_content,
+    'content' => $content,
+
     'title' => 'Дела в порядке'
 ]);
 
